@@ -1,0 +1,7 @@
+parameters:
+#    chamelle_thread.example.class: Chamelle\ThreadBundle\Example
+
+services:
+#    chamelle_thread.example:
+#        class: %chamelle_thread.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

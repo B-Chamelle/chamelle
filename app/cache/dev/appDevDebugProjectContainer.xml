@@ -19,7 +19,8 @@
       <parameter key="JMSAopBundle">JMS\AopBundle\JMSAopBundle</parameter>
       <parameter key="JMSDiExtraBundle">JMS\DiExtraBundle\JMSDiExtraBundle</parameter>
       <parameter key="JMSSecurityExtraBundle">JMS\SecurityExtraBundle\JMSSecurityExtraBundle</parameter>
-      <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
+      <parameter key="ChamelleUserBundle">Chamelle\UserBundle\ChamelleUserBundle</parameter>
+      <parameter key="ChamelleThreadBundle">Chamelle\ThreadBundle\ChamelleThreadBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -27,17 +28,17 @@
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">appDevDebugProjectContainer</parameter>
     <parameter key="database_driver">pdo_mysql</parameter>
-    <parameter key="database_host">127.0.0.1</parameter>
+    <parameter key="database_host">localhost</parameter>
     <parameter key="database_port">null</parameter>
-    <parameter key="database_name">symfony</parameter>
+    <parameter key="database_name">chamelle</parameter>
     <parameter key="database_user">root</parameter>
-    <parameter key="database_password">null</parameter>
+    <parameter key="database_password">root</parameter>
     <parameter key="mailer_transport">smtp</parameter>
-    <parameter key="mailer_host">127.0.0.1</parameter>
+    <parameter key="mailer_host">localhost</parameter>
     <parameter key="mailer_user">null</parameter>
     <parameter key="mailer_password">null</parameter>
-    <parameter key="locale">en</parameter>
-    <parameter key="secret">ThisTokenIsNotSoSecretChangeIt</parameter>
+    <parameter key="locale">fr</parameter>
+    <parameter key="secret">507226a1fe537b5afa866831262633d7</parameter>
     <parameter key="controller_resolver.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver</parameter>
     <parameter key="controller_name_converter.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser</parameter>
     <parameter key="response_listener.class">Symfony\Component\HttpKernel\EventListener\ResponseListener</parameter>
@@ -86,10 +87,10 @@
     <parameter key="debug.container.dump">C:/inetpub/wwwroot/Chamelle/app/cache/dev/appDevDebugProjectContainer.xml</parameter>
     <parameter key="debug.controller_resolver.class">Symfony\Component\HttpKernel\Controller\TraceableControllerResolver</parameter>
     <parameter key="debug.deprecation_logger_listener.class">Symfony\Component\HttpKernel\EventListener\DeprecationLoggerListener</parameter>
-    <parameter key="kernel.secret">ThisTokenIsNotSoSecretChangeIt</parameter>
+    <parameter key="kernel.secret">507226a1fe537b5afa866831262633d7</parameter>
     <parameter key="kernel.trusted_proxies" type="collection"/>
     <parameter key="kernel.trust_proxy_headers">false</parameter>
-    <parameter key="kernel.default_locale">en</parameter>
+    <parameter key="kernel.default_locale">fr</parameter>
     <parameter key="session.class">Symfony\Component\HttpFoundation\Session\Session</parameter>
     <parameter key="session.flashbag.class">Symfony\Component\HttpFoundation\Session\Flash\FlashBag</parameter>
     <parameter key="session.attribute_bag.class">Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag</parameter>
@@ -345,7 +346,7 @@
     <parameter key="swiftmailer.transport.smtp.class">Swift_Transport_EsmtpTransport</parameter>
     <parameter key="swiftmailer.transport.smtp.encryption">null</parameter>
     <parameter key="swiftmailer.transport.smtp.port">25</parameter>
-    <parameter key="swiftmailer.transport.smtp.host">127.0.0.1</parameter>
+    <parameter key="swiftmailer.transport.smtp.host">localhost</parameter>
     <parameter key="swiftmailer.transport.smtp.username">null</parameter>
     <parameter key="swiftmailer.transport.smtp.password">null</parameter>
     <parameter key="swiftmailer.transport.smtp.auth_mode">null</parameter>
@@ -479,8 +480,8 @@
     <parameter key="jms_di_extra.disable_grep">false</parameter>
     <parameter key="jms_di_extra.doctrine_integration">true</parameter>
     <parameter key="jms_di_extra.cache_warmer.controller_file_blacklist" type="collection"/>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">C:/inetpub/wwwroot/Chamelle/app/cache/dev/jms_diextra/doctrine/EntityManager_514b1d3c1f195.php</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager514b1d3c1f195_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">C:/inetpub/wwwroot/Chamelle/app/cache/dev/jms_diextra/doctrine/EntityManager_51530b248844d.php</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager51530b248844d_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
     <parameter key="security.secured_services" type="collection"/>
     <parameter key="security.access.method_interceptor.class">JMS\SecurityExtraBundle\Security\Authorization\Interception\MethodSecurityInterceptor</parameter>
     <parameter key="security.access.method_access_control" type="collection"/>
@@ -586,7 +587,7 @@
     </service>
     <service id="locale_listener" class="Symfony\Component\HttpKernel\EventListener\LocaleListener">
       <tag name="kernel.event_subscriber"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <argument type="service" id="router"/>
     </service>
     <service id="event_dispatcher" class="Symfony\Component\EventDispatcher\ContainerAwareEventDispatcher">
@@ -660,14 +661,6 @@
         <argument type="collection">
           <argument>sensio_framework_extra.cache.listener</argument>
           <argument>onKernelResponse</argument>
-        </argument>
-        <argument>0</argument>
-      </call>
-      <call method="addListenerService">
-        <argument>kernel.controller</argument>
-        <argument type="collection">
-          <argument>acme.demo.listener</argument>
-          <argument>onKernelController</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -805,7 +798,7 @@
       <argument>C:/inetpub/wwwroot/Chamelle/app/Resources</argument>
     </service>
     <service id="uri_signer" class="Symfony\Component\HttpKernel\UriSigner">
-      <argument>ThisTokenIsNotSoSecretChangeIt</argument>
+      <argument>507226a1fe537b5afa866831262633d7</argument>
     </service>
     <service id="fragment.handler" class="Symfony\Component\HttpKernel\Fragment\FragmentHandler">
       <tag name="kernel.event_subscriber"/>
@@ -1227,7 +1220,7 @@
     </service>
     <service id="form.csrf_provider" class="Symfony\Component\Form\Extension\Csrf\CsrfProvider\SessionCsrfProvider">
       <argument type="service" id="session"/>
-      <argument>ThisTokenIsNotSoSecretChangeIt</argument>
+      <argument>507226a1fe537b5afa866831262633d7</argument>
     </service>
     <service id="form.type_extension.csrf" class="Symfony\Component\Form\Extension\Csrf\Type\FormTypeCsrfExtension">
       <tag name="form.type_extension" alias="form"/>
@@ -2058,9 +2051,6 @@
           </service>
         </argument>
       </call>
-      <call method="addExtension">
-        <argument type="service" id="twig.extension.acme.demo"/>
-      </call>
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="templating.globals"/>
@@ -2200,11 +2190,11 @@
     <service id="doctrine.dbal.logger.profiling.default" class="Doctrine\DBAL\Logging\DebugStack" public="false"/>
     <service id="doctrine.dbal.default_connection" class="stdClass" factory-method="createConnection" factory-service="doctrine.dbal.connection_factory">
       <argument type="collection">
-        <argument key="dbname">symfony</argument>
-        <argument key="host">127.0.0.1</argument>
+        <argument key="dbname">chamelle</argument>
+        <argument key="host">localhost</argument>
         <argument key="port">null</argument>
         <argument key="user">root</argument>
-        <argument key="password">null</argument>
+        <argument key="password">root</argument>
         <argument key="charset">UTF8</argument>
         <argument key="driver">pdo_mysql</argument>
         <argument key="driverOptions" type="collection"/>
@@ -2257,8 +2247,8 @@
     <service id="doctrine.orm.default_manager_configurator" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator">
       <argument type="collection"/>
     </service>
-    <service id="doctrine.orm.default_entity_manager" class="EntityManager514b1d3c1f195_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
-      <file>C:/inetpub/wwwroot/Chamelle/app/cache/dev/jms_diextra/doctrine/EntityManager_514b1d3c1f195.php</file>
+    <service id="doctrine.orm.default_entity_manager" class="EntityManager51530b248844d_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
+      <file>C:/inetpub/wwwroot/Chamelle/app/cache/dev/jms_diextra/doctrine/EntityManager_51530b248844d.php</file>
       <argument type="service">
         <service class="Doctrine\ORM\EntityManager" factory-method="create" public="false">
           <argument type="service" id="doctrine.dbal.default_connection"/>
@@ -2477,14 +2467,6 @@
           </service>
         </argument>
       </call>
-    </service>
-    <service id="twig.extension.acme.demo" class="Acme\DemoBundle\Twig\Extension\DemoExtension" public="false">
-      <tag name="twig.extension"/>
-      <argument type="service" id="twig.loader"/>
-    </service>
-    <service id="acme.demo.listener" class="Acme\DemoBundle\EventListener\ControllerListener">
-      <tag name="kernel.event_listener" event="kernel.controller" method="onKernelController"/>
-      <argument type="service" id="twig.extension.acme.demo"/>
     </service>
     <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController">
       <argument type="service" id="router"/>
@@ -2769,8 +2751,12 @@
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>C:\inetpub\wwwroot\Chamelle\src\Acme\DemoBundle/Resources/views</argument>
-        <argument>AcmeDemo</argument>
+        <argument>C:\inetpub\wwwroot\Chamelle\src\Chamelle\UserBundle/Resources/views</argument>
+        <argument>ChamelleUser</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\inetpub\wwwroot\Chamelle\src\Chamelle\ThreadBundle/Resources/views</argument>
+        <argument>ChamelleThread</argument>
       </call>
       <call method="addPath">
         <argument>C:\inetpub\wwwroot\Chamelle\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/views</argument>
@@ -2836,7 +2822,7 @@
       </argument>
       <argument type="service" id="swiftmailer.transport.eventdispatcher"/>
       <call method="setHost">
-        <argument>127.0.0.1</argument>
+        <argument>localhost</argument>
       </call>
       <call method="setPort">
         <argument>25</argument>

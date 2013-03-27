@@ -1,0 +1,7 @@
+chamelle_thread:
+    resource: "@ChamelleThreadBundle/Resources/config/routing.yml"
+    prefix:   /thread
+
+chamelle_user:
+    resource: "@ChamelleUserBundle/Resources/config/routing.yml"
+    prefix:   /user
