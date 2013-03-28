@@ -20,6 +20,21 @@ class Message
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    
+    /**
+     * @var \Chamelle\ThreadBundle\Entity\Thread
+     *
+     * @ORM\ManyToOne(targetEntity="Chamelle\ThreadBundle\Entity\Thread", inversedBy="messages")
+     * @ORM\JoinColumn(name="thread_id", referencedColumnName="thread_id", nullable=false)
+     */
+    private $thread;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="msg_body", type="text")
+     */
+    private $body;
 
     /**
      * @var \DateTime
@@ -35,13 +50,29 @@ class Message
      */
     private $length;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="msg_body", type="text")
-     */
-    private $body;
 
+    /**
+     * Set body
+     *
+     * @param string $body
+     * @return Message
+     */
+    public function setBody($body)
+    {
+        $this->body = $body;
+    
+        return $this;
+    }
+
+    /**
+     * Get body
+     *
+     * @return string 
+     */
+    public function getBody()
+    {
+        return $this->body;
+    }
 
     /**
      * Get id
@@ -100,25 +131,25 @@ class Message
     }
 
     /**
-     * Set body
+     * Set thread
      *
-     * @param string $body
+     * @param integer $thread
      * @return Message
      */
-    public function setBody($body)
+    public function setThread($thread)
     {
-        $this->body = $body;
+        $this->thread = $thread;
     
         return $this;
     }
 
     /**
-     * Get body
+     * Get thread
      *
-     * @return string 
+     * @return \Chamelle\ThreadBundle\Entity\Thread
      */
-    public function getBody()
+    public function getThread()
     {
-        return $this->body;
+        return $this->thread;
     }
 }

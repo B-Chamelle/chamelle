@@ -20,6 +20,13 @@ class Thread
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="Chamelle\ThreadBundle\Entity\Message", mappedBy="thread")
+     */
+    private $messages;
 
     /**
      * @var string
@@ -60,5 +67,45 @@ class Thread
     public function getName()
     {
         return $this->name;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->messages = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add messages
+     *
+     * @param \Chamelle\ThreadBundle\Entity\Message $messages
+     * @return Thread
+     */
+    public function addMessage(\Chamelle\ThreadBundle\Entity\Message $messages)
+    {
+        $this->messages[] = $messages;
+    
+        return $this;
+    }
+
+    /**
+     * Remove messages
+     *
+     * @param \Chamelle\ThreadBundle\Entity\Message $messages
+     */
+    public function removeMessage(\Chamelle\ThreadBundle\Entity\Message $messages)
+    {
+        $this->messages->removeElement($messages);
+    }
+
+    /**
+     * Get messages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMessages()
+    {
+        return $this->messages;
     }
 }
