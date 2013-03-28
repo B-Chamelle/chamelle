@@ -27,6 +27,14 @@ class Thread
      * @ORM\OneToMany(targetEntity="Chamelle\ThreadBundle\Entity\Message", mappedBy="thread")
      */
     private $messages;
+    
+    /**
+     * @var \Chamelle\UserBundle\Entity\Team
+     *
+     * @ORM\ManyToOne(targetEntity="Chamelle\UserBundle\Entity\Team")
+     * @ORM\JoinColumn(name="team_id", referencedColumnName="team_id", nullable=false)
+     */
+    private $team;
 
     /**
      * @var string
@@ -34,8 +42,16 @@ class Thread
      * @ORM\Column(name="thread_name", type="string", length=255)
      */
     private $name;
-
-
+    
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->messages = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -68,14 +84,7 @@ class Thread
     {
         return $this->name;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->messages = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
+
     /**
      * Add messages
      *
@@ -107,5 +116,28 @@ class Thread
     public function getMessages()
     {
         return $this->messages;
+    }
+
+    /**
+     * Set team
+     *
+     * @param \Chamelle\UserBundle\Entity\Team $team
+     * @return Thread
+     */
+    public function setTeam(\Chamelle\UserBundle\Entity\Team $team)
+    {
+        $this->team = $team;
+    
+        return $this;
+    }
+
+    /**
+     * Get team
+     *
+     * @return \Chamelle\UserBundle\Entity\Team 
+     */
+    public function getTeam()
+    {
+        return $this->team;
     }
 }

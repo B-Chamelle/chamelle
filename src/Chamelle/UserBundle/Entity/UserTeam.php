@@ -15,28 +15,28 @@ class UserTeam
     /**
      * @var User
      * 
-     * @ORM\Column(name="user_id", type="integer")
      * @ORM\Id
      * @ORM\ManyToOne(targetEntity="Chamelle\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="user_id", nullable=false)
      */
     private $user;
 
     /**
      * @var Team
      * 
-     * @ORM\Column(name="team_id", type="integer")
      * @ORM\Id
      * @ORM\ManyToOne(targetEntity="Chamelle\UserBundle\Entity\Team")
+     * @ORM\JoinColumn(name="team_id", referencedColumnName="team_id", nullable=false)
      */
     private $team;
 
     /**
      * Set user
      *
-     * @param string $user
+     * @param \Chamelle\UserBundle\Entity\User $user
      * @return UserTeam
      */
-    public function setUser($user)
+    public function setUser(\Chamelle\UserBundle\Entity\User $user)
     {
         $this->user = $user;
     
@@ -46,7 +46,7 @@ class UserTeam
     /**
      * Get user
      *
-     * @return string 
+     * @return \Chamelle\UserBundle\Entity\User 
      */
     public function getUser()
     {
@@ -56,10 +56,10 @@ class UserTeam
     /**
      * Set team
      *
-     * @param string $team
+     * @param \Chamelle\UserBundle\Entity\Team $team
      * @return UserTeam
      */
-    public function setTeam($team)
+    public function setTeam(\Chamelle\UserBundle\Entity\Team $team)
     {
         $this->team = $team;
     
@@ -69,7 +69,7 @@ class UserTeam
     /**
      * Get team
      *
-     * @return string 
+     * @return \Chamelle\UserBundle\Entity\Team 
      */
     public function getTeam()
     {

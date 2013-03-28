@@ -28,6 +28,14 @@ class Message
      * @ORM\JoinColumn(name="thread_id", referencedColumnName="thread_id", nullable=false)
      */
     private $thread;
+    
+    /**
+     * @var \Chamelle\UserBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="Chamelle\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="user_id", nullable=false)
+     */
+    private $user;
 
     /**
      * @var string
@@ -49,7 +57,17 @@ class Message
      * @ORM\Column(name="msg_length", type="integer")
      */
     private $length;
+    
 
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set body
@@ -72,16 +90,6 @@ class Message
     public function getBody()
     {
         return $this->body;
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -133,10 +141,10 @@ class Message
     /**
      * Set thread
      *
-     * @param integer $thread
+     * @param \Chamelle\ThreadBundle\Entity\Thread $thread
      * @return Message
      */
-    public function setThread($thread)
+    public function setThread(\Chamelle\ThreadBundle\Entity\Thread $thread)
     {
         $this->thread = $thread;
     
@@ -146,10 +154,33 @@ class Message
     /**
      * Get thread
      *
-     * @return \Chamelle\ThreadBundle\Entity\Thread
+     * @return \Chamelle\ThreadBundle\Entity\Thread 
      */
     public function getThread()
     {
         return $this->thread;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Chamelle\UserBundle\Entity\User $user
+     * @return Message
+     */
+    public function setUser(\Chamelle\UserBundle\Entity\User $user)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Chamelle\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
