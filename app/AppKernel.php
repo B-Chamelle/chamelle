@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Chamelle\UserBundle\ChamelleUserBundle(),
             new Chamelle\ThreadBundle\ChamelleThreadBundle(),
+            new Chamelle\StatBundle\ChamelleStatBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test')))

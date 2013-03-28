@@ -1,0 +1,3 @@
+chamelle_stat_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: ChamelleStatBundle:Default:index }

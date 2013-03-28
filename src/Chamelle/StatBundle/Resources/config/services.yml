@@ -1,0 +1,7 @@
+parameters:
+#    chamelle_stat.example.class: Chamelle\StatBundle\Example
+
+services:
+#    chamelle_stat.example:
+#        class: %chamelle_stat.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

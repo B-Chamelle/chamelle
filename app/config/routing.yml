@@ -1,3 +1,7 @@
+chamelle_stat:
+    resource: "@ChamelleStatBundle/Resources/config/routing.yml"
+    prefix:   /
+
 chamelle_thread:
     resource: "@ChamelleThreadBundle/Resources/config/routing.yml"
     prefix:   /thread
