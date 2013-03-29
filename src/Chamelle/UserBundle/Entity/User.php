@@ -24,17 +24,24 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="user_login", type="string", length=50)
+     * @ORM\Column(name="user_email", type="string", length=255, unique=true)
      */
-    private $login;
+    private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="user_pwd", type="string", length=25)
+     * @ORM\Column(name="user_name", type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="user_pwd", type="string", length=64)
      */
     private $pwd;
-
+    
 
     /**
      * Get id
@@ -47,26 +54,49 @@ class User
     }
 
     /**
-     * Set login
+     * Set email
      *
-     * @param string $login
+     * @param string $email
      * @return User
      */
-    public function setLogin($login)
+    public function setEmail($email)
     {
-        $this->login = $login;
+        $this->email = $email;
     
         return $this;
     }
 
     /**
-     * Get login
+     * Get email
      *
      * @return string 
      */
-    public function getLogin()
+    public function getEmail()
     {
-        return $this->login;
+        return $this->email;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return User
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**
