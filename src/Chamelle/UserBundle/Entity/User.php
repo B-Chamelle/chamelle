@@ -24,13 +24,6 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="user_email", type="string", length=255, unique=true)
-     */
-    private $email;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="user_name", type="string", length=255)
      */
     private $name;
@@ -38,9 +31,24 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="user_pwd", type="string", length=64)
+     * @ORM\Column(name="user_email", type="string", length=255, unique=true)
      */
-    private $pwd;
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="user_hash", type="string", length=64)
+     */
+    private $hash;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="user_salt", type="string", length=64)
+     */
+    private $salt;
+    
     
 
     /**
@@ -51,29 +59,6 @@ class User
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return User
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string 
-     */
-    public function getEmail()
-    {
-        return $this->email;
     }
 
     /**
@@ -100,25 +85,71 @@ class User
     }
 
     /**
-     * Set pwd
+     * Set email
      *
-     * @param string $pwd
+     * @param string $email
      * @return User
      */
-    public function setPwd($pwd)
+    public function setEmail($email)
     {
-        $this->pwd = $pwd;
+        $this->email = $email;
     
         return $this;
     }
 
     /**
-     * Get pwd
+     * Get email
      *
      * @return string 
      */
-    public function getPwd()
+    public function getEmail()
     {
-        return $this->pwd;
+        return $this->email;
+    }
+
+    /**
+     * Set hash
+     *
+     * @param string $hash
+     * @return User
+     */
+    public function setHash($hash)
+    {
+        $this->hash = $hash;
+    
+        return $this;
+    }
+
+    /**
+     * Get hash
+     *
+     * @return string 
+     */
+    public function getHash()
+    {
+        return $this->hash;
+    }
+
+    /**
+     * Set salt
+     *
+     * @param string $salt
+     * @return User
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+    
+        return $this;
+    }
+
+    /**
+     * Get salt
+     *
+     * @return string 
+     */
+    public function getSalt()
+    {
+        return $this->salt;
     }
 }
