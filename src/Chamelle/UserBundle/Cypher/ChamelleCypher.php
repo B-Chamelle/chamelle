@@ -1,8 +1,8 @@
 <?php
 
-namespace Chamelle\UserBundle\Password;
+namespace Chamelle\UserBundle\Cypher;
 
-class ChamellePassword
+class ChamelleCypher
 {
     /**
      * Adds salt then hashes the given password
