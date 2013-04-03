@@ -63,8 +63,6 @@ class User
      */
     private $salt;
     
-    //TODO: bidirectionnal user_thread relation
-    
     
     
     /**
