@@ -1,11 +1,11 @@
-chamelle_stat:
-    resource: "@ChamelleStatBundle/Resources/config/routing.yml"
-    prefix:   /
-
 chamelle_thread:
     resource: "@ChamelleThreadBundle/Resources/config/routing.yml"
-    prefix:   /thread
+    prefix:   /
 
 chamelle_user:
     resource: "@ChamelleUserBundle/Resources/config/routing.yml"
     prefix:   /user
+
+chamelle_stat:
+    resource: "@ChamelleStatBundle/Resources/config/routing.yml"
+    prefix:   /stat
