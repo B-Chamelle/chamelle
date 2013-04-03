@@ -1,1 +1,7 @@
-Hello {{ name }}!
+{% extends "ChamelleThreadBundle::layout.html.twig" %}
+ 
+{% block title %}{{ parent() }} - Index{% endblock %}
+
+{% block body %}
+    <h1>Kikoo!</h1>
+{% endblock %}
