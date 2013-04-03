@@ -3,6 +3,7 @@
 namespace Chamelle\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -32,6 +33,7 @@ class User
      * @var string
      *
      * @ORM\Column(name="user_name", type="string", length=255)
+     * @Assert\MinLength(1)
      */
     private $name;
 
@@ -39,6 +41,7 @@ class User
      * @var string
      *
      * @ORM\Column(name="user_email", type="string", length=255, unique=true)
+     * @Assert\Email()
      */
     private $email;
 
@@ -46,6 +49,8 @@ class User
      * @var string
      *
      * @ORM\Column(name="user_hash", type="string", length=64)
+     * @Assert\MinLength(64)
+     * @Assert\MaxLength(64)
      */
     private $hash;
 
@@ -53,6 +58,8 @@ class User
      * @var string
      *
      * @ORM\Column(name="user_salt", type="string", length=64)
+     * @Assert\MinLength(64)
+     * @Assert\MaxLength(64)
      */
     private $salt;
     
