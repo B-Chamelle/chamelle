@@ -3,6 +3,7 @@
 namespace Chamelle\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Team
@@ -25,6 +26,7 @@ class Team
      * @var string
      *
      * @ORM\Column(name="team_name", type="string", length=255, unique=true)
+     * @Assert\MinLength(1)
      */
     private $name;
 
