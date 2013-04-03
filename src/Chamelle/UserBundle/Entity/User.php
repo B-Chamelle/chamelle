@@ -22,6 +22,13 @@ class User
     private $id;
 
     /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     * 
+     * @ORM\OneToMany(targetEntity="Chamelle\User\Entity\UserThread", mappedBy="user")
+     */
+    private $userThreads;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="user_name", type="string", length=255)
@@ -49,7 +56,17 @@ class User
      */
     private $salt;
     
+    //TODO: bidirectionnal user_thread relation
     
+    
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->userThreads = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -151,5 +168,39 @@ class User
     public function getSalt()
     {
         return $this->salt;
+    }
+    
+    /**
+     * Add userThreads
+     *
+     * @param \Chamelle\User\Entity\UserThread $userThread
+     * @return User
+     */
+    public function addUserThread(\Chamelle\User\Entity\UserThread $userThread)
+    {
+        $this->userThreads[] = $userThread;
+        $userThread->setUser($this);
+    
+        return $this;
+    }
+
+    /**
+     * Remove userThreads
+     *
+     * @param \Chamelle\User\Entity\UserThread $userThread
+     */
+    public function removeUserThread(\Chamelle\User\Entity\UserThread $userThread)
+    {
+        $this->userThreads->removeElement($userThread);
+    }
+
+    /**
+     * Get userThreads
+     *
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getUserThreads()
+    {
+        return $this->userThreads;
     }
 }

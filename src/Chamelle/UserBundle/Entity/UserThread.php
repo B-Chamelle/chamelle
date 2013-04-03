@@ -16,7 +16,7 @@ class UserThread
      * @var User
      * 
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="Chamelle\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Chamelle\UserBundle\Entity\User", inversedBy="userThreads")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="user_id", nullable=false)
      */
     private $user;
@@ -28,7 +28,7 @@ class UserThread
      * @ORM\ManyToOne(targetEntity="Chamelle\ThreadBundle\Entity\Thread")
      * @ORM\JoinColumn(name="thread_id", referencedColumnName="thread_id", nullable=false)
      */
-    private $team;
+    private $thread;
 
     /**
      * @var Thread
@@ -37,6 +37,7 @@ class UserThread
      * @ORM\JoinColumn(name="msg_id", referencedColumnName="msg_id", nullable=true)
      */
     private $lastMsgRead;
+    
 
     /**
      * Set user
@@ -62,26 +63,26 @@ class UserThread
     }
 
     /**
-     * Set team
+     * Set thread
      *
-     * @param \Chamelle\ThreadBundle\Entity\Thread $team
+     * @param \Chamelle\ThreadBundle\Entity\Thread $thread
      * @return UserThread
      */
-    public function setTeam(\Chamelle\ThreadBundle\Entity\Thread $team)
+    public function setThread(\Chamelle\ThreadBundle\Entity\Thread $thread)
     {
-        $this->team = $team;
+        $this->thread = $thread;
     
         return $this;
     }
 
     /**
-     * Get team
+     * Get thread
      *
      * @return \Chamelle\ThreadBundle\Entity\Thread 
      */
-    public function getTeam()
+    public function getThread()
     {
-        return $this->team;
+        return $this->thread;
     }
 
     /**
