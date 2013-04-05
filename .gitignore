@@ -11,5 +11,8 @@ web/bundles/*
 # Configuration files
 app/config/parameters.yml
 
+# Entites backup
+*.php~
+
 #Netbeans
 nbproject/*
