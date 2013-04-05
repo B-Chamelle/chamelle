@@ -2,6 +2,5 @@ parameters:
 #    chamelle_user.example.class: Chamelle\UserBundle\Example
 
 services:
-#    chamelle_user.example:
-#        class: %chamelle_user.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    cypher:
+        class: Chamelle\UserBundle\Service\ChamelleCypher
