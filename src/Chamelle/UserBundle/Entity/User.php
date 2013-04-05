@@ -4,6 +4,7 @@ namespace Chamelle\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -11,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="Chamelle\UserBundle\Entity\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var integer
@@ -35,7 +36,7 @@ class User
      * @ORM\Column(name="user_name", type="string", length=255)
      * @Assert\MinLength(1)
      */
-    private $name;
+    private $username;
 
     /**
      * @var string
@@ -52,7 +53,7 @@ class User
      * @Assert\MinLength(64)
      * @Assert\MaxLength(64)
      */
-    private $hash;
+    private $password;
 
     /**
      * @var string
@@ -62,6 +63,11 @@ class User
      * @Assert\MaxLength(64)
      */
     private $salt;
+
+    /**
+     * @var array
+     */
+    private $roles;
     
     
     
@@ -71,6 +77,7 @@ class User
     public function __construct()
     {
         $this->userThreads = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->roles = array('ROLE_USER');
     }
 
     /**
@@ -84,26 +91,26 @@ class User
     }
 
     /**
-     * Set name
+     * Set username
      *
-     * @param string $name
+     * @param string $username
      * @return User
      */
-    public function setName($name)
+    public function setUsername($username)
     {
-        $this->name = $name;
+        $this->username = $username;
     
         return $this;
     }
 
     /**
-     * Get name
+     * Get username
      *
      * @return string 
      */
-    public function getName()
+    public function getUsername()
     {
-        return $this->name;
+        return $this->username;
     }
 
     /**
@@ -130,14 +137,14 @@ class User
     }
 
     /**
-     * Set hash
+     * Set password
      *
-     * @param string $hash
+     * @param string $password
      * @return User
      */
-    public function setHash($hash)
+    public function setPassword($password)
     {
-        $this->hash = $hash;
+        $this->password = $password;
     
         return $this;
     }
@@ -147,9 +154,9 @@ class User
      *
      * @return string 
      */
-    public function getHash()
+    public function getPassword()
     {
-        return $this->hash;
+        return $this->password;
     }
 
     /**
@@ -207,5 +214,34 @@ class User
     public function getUserThreads()
     {
         return $this->userThreads;
+    }
+
+    /**
+     * Set roles
+     *
+     * @param array $roles
+     * @return User
+     */
+    
+    public function setRoles(array $roles)
+    {
+        $this->roles = $roles;
+        return $this;
+    }
+
+    /**
+     * Get roles
+     *
+     * @return array 
+     */
+
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    public function eraseCredentials()
+    {
+        
     }
 }
