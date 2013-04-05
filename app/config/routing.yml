@@ -9,3 +9,13 @@ chamelle_user:
 chamelle_stat:
     resource: "@ChamelleStatBundle/Resources/config/routing.yml"
     prefix:   /stat
+    
+login:
+    pattern:   /login
+    defaults:  { _controller: ChamelleUserBundle:User:login }
+ 
+login_check:
+    pattern:   /login_check
+ 
+logout:
+    pattern:   /logout

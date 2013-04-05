@@ -26,7 +26,7 @@ class User implements UserInterface
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      * 
-     * @ORM\OneToMany(targetEntity="Chamelle\User\Entity\UserThread", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="Chamelle\UserBundle\Entity\UserThread", mappedBy="user")
      */
     private $userThreads;
 
@@ -36,7 +36,7 @@ class User implements UserInterface
      * @ORM\Column(name="user_name", type="string", length=255)
      * @Assert\MinLength(1)
      */
-    private $username;
+    private $name;
 
     /**
      * @var string
@@ -63,11 +63,6 @@ class User implements UserInterface
      * @Assert\MaxLength(64)
      */
     private $salt;
-
-    /**
-     * @var array
-     */
-    private $roles;
     
     
     
@@ -77,7 +72,6 @@ class User implements UserInterface
     public function __construct()
     {
         $this->userThreads = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->roles = array('ROLE_USER');
     }
 
     /**
@@ -93,24 +87,24 @@ class User implements UserInterface
     /**
      * Set username
      *
-     * @param string $username
+     * @param string $name
      * @return User
      */
-    public function setUsername($username)
+    public function setName($name)
     {
-        $this->username = $username;
+        $this->name = $name;
     
         return $this;
     }
 
     /**
-     * Get username
+     * Get name
      *
      * @return string 
      */
-    public function getUsername()
+    public function getName()
     {
-        return $this->username;
+        return $this->name;
     }
 
     /**
@@ -215,18 +209,20 @@ class User implements UserInterface
     {
         return $this->userThreads;
     }
+    
+    
+    /**************************************************************************
+     ****                    AUTHENTICATION MANAGEMENT                     ****
+     **************************************************************************/
 
     /**
-     * Set roles
+     * Get username
      *
-     * @param array $roles
-     * @return User
+     * @return string 
      */
-    
-    public function setRoles(array $roles)
+    public function getUsername()
     {
-        $this->roles = $roles;
-        return $this;
+        return $this->email;
     }
 
     /**
@@ -234,10 +230,9 @@ class User implements UserInterface
      *
      * @return array 
      */
-
     public function getRoles()
     {
-        return $this->roles;
+        return array('ROLE_USER'); //we don't manage roles
     }
 
     public function eraseCredentials()

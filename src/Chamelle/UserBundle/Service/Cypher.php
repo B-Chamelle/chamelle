@@ -7,7 +7,7 @@ use Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface;
 class Cypher implements PasswordEncoderInterface
 {
     const HASH_ALGORITHM = 'sha256';
-    const SALT_BYTES_LENGTH = 32;
+    const SALT_BYTES_LENGTH = 32; //length of the salt as bytes (half of the hexa string)
     
     /**
      * Adds salt then hashes the given password

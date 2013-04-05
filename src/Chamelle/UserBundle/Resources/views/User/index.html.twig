@@ -1,1 +1,7 @@
-Hello {{ name }}!
+{% extends "ChamelleUserBundle::user.html.twig" %}
+
+{% block title %}{{ parent() }} - Login{% endblock %}
+
+{% block body %}
+    <h4>Hello {{ name }}!</h4>
+{% endblock %}

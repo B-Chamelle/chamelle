@@ -2,5 +2,5 @@ parameters:
 #    chamelle_user.example.class: Chamelle\UserBundle\Example
 
 services:
-    cypher:
-        class: Chamelle\UserBundle\Service\ChamelleCypher
+    chamelle.user.cypher:
+        class: Chamelle\UserBundle\Service\Cypher
