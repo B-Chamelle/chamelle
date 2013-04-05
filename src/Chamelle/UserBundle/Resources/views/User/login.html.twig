@@ -3,19 +3,22 @@
 {% block title %}{{ parent() }} - Login{% endblock %}
 
 {% block body %}
-    {# S'il y a une erreur, on l'affiche dans un joli cadre #}
-    {% if error %}
-    <div class="alert alert-error">{{ error.message }}</div>
-    {% endif %}
 
-    {# Le formulaire, avec URL de soumission vers la route « login_check » comme on l'a vu #}
-    <form action="{{ path('login_check') }}" method="post">
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="_username" value="{{ last_username }}" />
+    <div class="span4 offset4">
+    
+        {% if error %}
+        <div class="alert alert-error">{{ error.message }}</div>
+        {% endif %}
+        
+        <form action="{{ path('login_check') }}" method="post" class="well">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="_username" value="{{ last_username }}" autofocus/>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password" />
-        <br />
-        <button type="submit" class="btn btn-primary"> <i class="icon-user icon-white"></i> Sign in</button>
-    </form>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="_password"/>
+            <br />
+            <button type="submit" class="btn btn-primary"> <i class="icon-user icon-white"></i> Sign in</button>
+        </form>
+    </div>
+    
 {% endblock %}

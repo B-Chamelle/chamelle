@@ -11,20 +11,24 @@
     
     <body>
         <div class="container">
-            <div id="header" class="hero-unit">
+            <header class="hero-unit">
                 <h1>Chamelle</h1>
                 <p>God created man, man created Chamelle, Chamelle destroyed God.</p>
-            </div>
+            </header>
             
             <div class="row">
-                <div id="content" class="span9">
-                    {% block body %}
-                    {% endblock %}
+                <div class="span12">
+                {% block body %}
+                {% endblock %}
                 </div>
             </div>
 
             <footer>
-                <p>B-Chamelle &copy; 2013</p>
+                <div class="row">
+                    <div class="span10 offset1" style="text-align: right">
+                        B-Chamelle &copy; 2013
+                    </div>
+                </div>
             </footer>
         </div>
             
