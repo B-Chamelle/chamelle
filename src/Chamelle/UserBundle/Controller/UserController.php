@@ -7,7 +7,7 @@ use Symfony\Component\Security\Core\SecurityContext;
 
 class UserController extends Controller
 {
-    public function indexAction()
+    public function accountAction()
     {
         $user = $this->getUser();
         
@@ -17,7 +17,13 @@ class UserController extends Controller
             $name = $user->getName();
         }
         
-        return $this->render('ChamelleUserBundle:User:index.html.twig', array('name' => $name));
+        return $this->render('ChamelleUserBundle:User:account.html.twig', array('name' => $name));
+    }
+    
+    
+    public function teamsAction()
+    {        
+        return $this->render('ChamelleUserBundle:User:teams.html.twig');
     }
     
     
@@ -28,7 +34,7 @@ class UserController extends Controller
         // Si le visiteur est déjà identifié, on le redirige vers l'accueil
         if($this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED'))
         {
-            return $this->redirect($this->generateUrl('chamelle_user_homepage'));
+            return $this->redirect($this->generateUrl('chamelle_thread_home'));
         }
 
         $request = $this->getRequest();

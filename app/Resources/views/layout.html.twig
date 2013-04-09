@@ -11,6 +11,25 @@
     
     <body>
         <div class="container">
+            <nav class="navbar">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <ul class="nav">
+                            <li> <a href="{{ path('chamelle_root_home') }}">Home</a> </li>
+                            {% if app.user %} {# if user is authenticated #}
+                            <li> <a href="{{ path('chamelle_user_account') }}">My account</a> </li>
+                            <li> <a href="{{ path('chamelle_user_teams') }}">Teams</a> </li>
+                            <li> <a href="{{ path('chamelle_thread_list') }}">Threads</a> </li>
+                            <li> <a href="{{ path('chamelle_stat_stats') }}">Stats</a> </li>
+                            <li> <a href="{{ path('logout') }}">Sign out</a> </li>
+                            {% else %}
+                            <li> <a href="{{ path('login') }}">Sign in</a> </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+                
             <header class="hero-unit">
                 <h1>Chamelle</h1>
                 <p>God created man, man created Chamelle, Chamelle destroyed God.</p>

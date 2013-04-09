@@ -6,8 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class StatController extends Controller
 {
-    public function indexAction($name)
+    public function statsAction()
     {
-        return $this->render('ChamelleStatBundle:Stat:index.html.twig', array('name' => $name));
+        return $this->render('ChamelleStatBundle:Stat:stats.html.twig');
     }
 }

@@ -1,3 +1,7 @@
-chamelle_user_homepage:
-    pattern:  /home
-    defaults: { _controller: ChamelleUserBundle:User:index }
+chamelle_user_account:
+    pattern:  /account
+    defaults: { _controller: ChamelleUserBundle:User:account }
+
+chamelle_user_teams:
+    pattern:  /teams
+    defaults: { _controller: ChamelleUserBundle:User:teams }

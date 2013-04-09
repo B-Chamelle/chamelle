@@ -1,6 +1,10 @@
+chamelle_home:
+    resource: "@ChamelleThreadBundle/Resources/config/routing_home.yml"
+    prefix:   /
+    
 chamelle_thread:
     resource: "@ChamelleThreadBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /thread
 
 chamelle_user:
     resource: "@ChamelleUserBundle/Resources/config/routing.yml"
