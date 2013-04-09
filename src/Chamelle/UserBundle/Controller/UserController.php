@@ -29,18 +29,16 @@ class UserController extends Controller
     
     public function loginAction()
     {
-        //$encoder = $this->get('chamelle.user.cypher')->getEncoder($user);
-        
-        // Si le visiteur est déjà identifié, on le redirige vers l'accueil
+        // If already connected, redirection to home page
         if($this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED'))
         {
-            return $this->redirect($this->generateUrl('chamelle_thread_home'));
+            return $this->redirect($this->generateUrl('chamelle_root_home'));
         }
 
         $request = $this->getRequest();
         $session = $request->getSession();
 
-        // On vérifie s'il y a des erreurs d'une précédent soumission du formulaire
+        // Checking authentification errors from previous form submition
         if($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR))
         {
             $error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
@@ -52,7 +50,6 @@ class UserController extends Controller
         }
 
         return $this->render('ChamelleUserBundle:User:login.html.twig', array(
-            // Valeur du précédent nom d'utilisateur rentré par l'internaute
             'last_username' => $session->get(SecurityContext::LAST_USERNAME),
             'error'         => $error,
         ));

@@ -232,7 +232,7 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-        return array('ROLE_USER'); //we don't manage roles
+        return array('ROLE_USER'); //we don't manage different roles
     }
 
     public function eraseCredentials()

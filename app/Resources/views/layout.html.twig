@@ -11,6 +11,8 @@
     
     <body>
         <div class="container">
+            
+            {# Navigation bar #}
             <nav class="navbar">
                 <div class="navbar-inner">
                     <div class="container">
@@ -21,20 +23,24 @@
                             <li> <a href="{{ path('chamelle_user_teams') }}">Teams</a> </li>
                             <li> <a href="{{ path('chamelle_thread_list') }}">Threads</a> </li>
                             <li> <a href="{{ path('chamelle_stat_stats') }}">Stats</a> </li>
+                            <li class="divider-vertical"></li>
                             <li> <a href="{{ path('logout') }}">Sign out</a> </li>
                             {% else %}
+                            <li class="divider-vertical"></li>
                             <li> <a href="{{ path('login') }}">Sign in</a> </li>
                             {% endif %}
                         </ul>
                     </div>
                 </div>
             </nav>
-                
+            
+            {# Header #}
             <header class="hero-unit">
                 <h1>Chamelle</h1>
                 <p>God created man, man created Chamelle, Chamelle destroyed God.</p>
             </header>
             
+            {# Body #}
             <div class="row">
                 <div class="span12">
                 {% block body %}
@@ -42,6 +48,7 @@
                 </div>
             </div>
 
+            {# Footer #}
             <footer>
                 <div class="row">
                     <div class="span10 offset1" style="text-align: right">
