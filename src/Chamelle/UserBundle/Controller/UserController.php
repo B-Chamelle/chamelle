@@ -22,7 +22,7 @@ class UserController extends Controller
     
     
     public function teamsAction()
-    {        
+    {
         return $this->render('ChamelleUserBundle:User:teams.html.twig');
     }
     
