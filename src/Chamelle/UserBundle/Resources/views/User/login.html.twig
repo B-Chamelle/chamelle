@@ -3,22 +3,19 @@
 {% block title %}{{ parent() }} - Login{% endblock %}
 
 {% block body %}
-
-    <div class="span4 offset4">
     
-        {% if error %}
-        <div class="alert alert-error">{{ error.message }}</div>
-        {% endif %}
-        
-        <form action="{{ path('login_check') }}" method="post" class="well">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="_username" value="{{ last_username }}" autofocus/>
+    {% if error %}
+    <div class="alert alert-error">{{ error.message }}</div>
+    {% endif %}
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="_password"/>
-            <br />
-            <button type="submit" class="btn btn-primary"> <i class="icon-user icon-white"></i> Sign in</button>
-        </form>
-    </div>
+    <form action="{{ path('login_check') }}" method="post">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="_username" value="{{ last_username }}" autofocus/>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="_password"/>
+        <br />
+        <button type="submit" class="btn btn-primary"> <i class="icon-user icon-white"></i> Sign in</button>
+    </form>
     
 {% endblock %}

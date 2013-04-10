@@ -3,7 +3,20 @@
 {% block title %}{{ parent() }} - Threads{% endblock %}
 
 {% block body %}
-<p>
-    Ici on aura la liste des threads organisée par teams.
-</p>
+
+    <h4>Threads</h4>
+    
+    <ul>
+        <li> Display all threads (group by teams) </li>
+        <li> For each thread: </li>
+        <ul>
+            <li> Display number of unread message </li>
+            <li> Display date of last message read </li>
+            <li> Display date of last message </li>
+            <li> Option: Rename thread </li>
+            <li> Link to stat </li>
+            <li> Link to chat </li>
+        </ul>
+    </ul>
+    
 {% endblock %}
