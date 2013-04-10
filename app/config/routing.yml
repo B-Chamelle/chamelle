@@ -1,6 +1,13 @@
+welcome:
+    pattern:  /
+    defaults:
+        _controller:  FrameworkBundle:Redirect:redirect
+        route:        chamelle_home
+        permanent:    true
+
 chamelle_home:
-    resource: "@ChamelleThreadBundle/Resources/config/routing_home.yml"
-    prefix:   /
+    pattern:  /home
+    defaults: { _controller: ChamelleThreadBundle:Thread:home }
     
 chamelle_thread:
     resource: "@ChamelleThreadBundle/Resources/config/routing.yml"

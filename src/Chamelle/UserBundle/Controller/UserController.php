@@ -32,7 +32,7 @@ class UserController extends Controller
         // If already connected, redirection to home page
         if($this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED'))
         {
-            return $this->redirect($this->generateUrl('chamelle_root_home'));
+            return $this->redirect($this->generateUrl('chamelle_home'));
         }
 
         $request = $this->getRequest();
