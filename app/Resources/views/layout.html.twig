@@ -17,7 +17,7 @@
                 <div class="navbar-inner">
                     <div class="container">
                         <ul class="nav">
-                            <li> <a href="{{ path('chamelle_root_home') }}">Home</a> </li>
+                            <li> <a href="{{ path('chamelle_home') }}">Home</a> </li>
                             {% if app.user %} {# if user is authenticated #}
                             <li> <a href="{{ path('chamelle_user_account') }}">My account</a> </li>
                             <li> <a href="{{ path('chamelle_user_teams') }}">Teams</a> </li>
@@ -50,9 +50,10 @@
 
             {# Footer #}
             <footer>
+                <hr class="divider"></hr>
                 <div class="row">
-                    <div class="span10 offset1" style="text-align: right">
-                        B-Chamelle &copy; 2013
+                    <div class="span12" style="text-align: right">
+                        &copy; 2013 B-Chamelle, Inc. All rights reserved
                     </div>
                 </div>
             </footer>
