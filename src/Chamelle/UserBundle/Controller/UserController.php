@@ -21,9 +21,15 @@ class UserController extends Controller
     }
     
     
-    public function teamsAction()
+    public function createAction()
     {
-        return $this->render('ChamelleUserBundle:User:teams.html.twig');
+        //Check form
+        
+        //Create user
+        
+        //If creation succeeds: send email with activation link
+        
+        //Return email sent
     }
     
     
@@ -51,7 +57,7 @@ class UserController extends Controller
 
         return $this->render('ChamelleUserBundle:User:login.html.twig', array(
             'last_username' => $session->get(SecurityContext::LAST_USERNAME),
-            'error'         => $error,
+            'error'         => $error
         ));
     }
 }

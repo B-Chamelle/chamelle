@@ -4,4 +4,4 @@ chamelle_user_account:
 
 chamelle_user_teams:
     pattern:  /teams
-    defaults: { _controller: ChamelleUserBundle:User:teams }
+    defaults: { _controller: ChamelleUserBundle:Team:list }
