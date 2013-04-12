@@ -1,0 +1,24 @@
+{% extends "ChamelleUserBundle::user.html.twig" %}
+
+{% block title %}{{ parent() }} - Register{% endblock %}
+
+{% block body %}
+    
+    {% if error %}
+    <div class="alert alert-error">{{ error.message }}</div>
+    {% endif %}
+
+    <form action="{{ path('chamelle_user_create') }}" method="post">
+        <label for="name">Nickname</label>
+        <input type="text" id="name" name="_name" autofocus/>
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" name="_email"/>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="_password"/>
+        <br />
+        <button type="submit" class="btn btn-success"> <i class="icon-user icon-white"></i> Sign up</button>
+    </form>
+    
+{% endblock %}

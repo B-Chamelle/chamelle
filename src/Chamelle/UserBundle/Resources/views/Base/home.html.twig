@@ -1,0 +1,33 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Home{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="span12">
+            <h3>Welcome to the future!</h3>
+            <p>
+                It has to start somewhere... It has to start sometime...
+                <br>
+                What better place than here? What better time than now?
+            </p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="span6">
+            <h4>New to Chamelle?</h4>
+            <p>
+                You don't have a Chamelle account yet?! Then just click the fucking button and sign the fuck up!
+            </p>
+            <a href="{{ path('chamelle_register') }}" class="btn btn-success btn-large"><i class="icon-white icon-user"></i> Sign up</a>
+        </div>
+        <div class="span6">
+            <h4>Already among us?</h4>
+            <p>
+                Then just sign the fuck in and enjoy chatting with your fucking teammates!
+            </p>
+            <a href="{{ path('login') }}" class="btn btn-primary btn-large"><i class="icon-white icon-user"></i> Sign in</a>
+        </div>
+    </div>
+{% endblock %}

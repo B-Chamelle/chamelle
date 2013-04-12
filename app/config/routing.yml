@@ -5,25 +5,28 @@ welcome:
         route:        chamelle_home
         permanent:    true
 
-chamelle_home:
-    pattern:  /home
-    defaults: { _controller: ChamelleThreadBundle:Thread:home }
-    
+# Main routes
+chamelle_base:
+    resource: "@ChamelleUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 chamelle_thread:
-    resource: "@ChamelleThreadBundle/Resources/config/routing.yml"
+    resource: "@ChamelleThreadBundle/Resources/config/routing_thread.yml"
     prefix:   /thread
 
 chamelle_user:
-    resource: "@ChamelleUserBundle/Resources/config/routing.yml"
+    resource: "@ChamelleUserBundle/Resources/config/routing_user.yml"
     prefix:   /user
 
 chamelle_stat:
-    resource: "@ChamelleStatBundle/Resources/config/routing.yml"
+    resource: "@ChamelleStatBundle/Resources/config/routing_stat.yml"
     prefix:   /stat
-    
+
+
+# Authentication
 login:
     pattern:   /login
-    defaults:  { _controller: ChamelleUserBundle:User:login }
+    defaults:  { _controller: ChamelleUserBundle:Base:login }
  
 login_check:
     pattern:   /login_check
