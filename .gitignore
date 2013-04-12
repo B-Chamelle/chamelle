@@ -16,3 +16,6 @@ app/config/parameters.yml
 
 #Netbeans
 nbproject/*
+
+#IIS
+web.config
