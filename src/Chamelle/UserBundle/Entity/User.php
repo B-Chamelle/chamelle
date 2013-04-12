@@ -63,6 +63,14 @@ class User implements UserInterface
      * @Assert\MaxLength(64)
      */
     private $salt;
+
+    /**
+     * @var string
+     *
+     * @Assert\MinLength(7)
+     * @Assert\NotBlank()
+     */
+    private $rawPassword;
     
     
     
@@ -144,7 +152,7 @@ class User implements UserInterface
     }
 
     /**
-     * Get hash
+     * Get password
      *
      * @return string 
      */
@@ -174,6 +182,29 @@ class User implements UserInterface
     public function getSalt()
     {
         return $this->salt;
+    }
+
+    /**
+     * Set rawPassword
+     *
+     * @param string $rawPassword
+     * @return User
+     */
+    public function setRawPassword($rawPassword)
+    {
+        $this->rawPassword = $rawPassword;
+    
+        return $this;
+    }
+
+    /**
+     * Get rawPassword
+     *
+     * @return string 
+     */
+    public function getRawPassword()
+    {
+        return $this->rawPassword;
     }
     
     /**
