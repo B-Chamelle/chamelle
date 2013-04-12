@@ -26,7 +26,7 @@ class Team
      * @var string
      *
      * @ORM\Column(name="team_name", type="string", length=255, unique=true)
-     * @Assert\MinLength(1)
+     * @Assert\NotBlank()
      */
     private $name;
 
