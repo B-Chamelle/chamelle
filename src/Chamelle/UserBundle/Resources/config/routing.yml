@@ -5,6 +5,10 @@ chamelle_home:
 chamelle_register:
     pattern:  /register
     defaults: { _controller: ChamelleUserBundle:Base:register }
+    
+chamelle_createuser:
+    pattern:  /create
+    defaults: { _controller: ChamelleUserBundle:Base:create }
 
 chamelle_lostpwd:
     pattern:  /lostpwd

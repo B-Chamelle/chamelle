@@ -2,6 +2,8 @@
 
 namespace Chamelle\UserBundle\Controller;
 
+use Chamelle\UserBundle\Entity\User;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
 
@@ -21,6 +23,50 @@ class BaseController extends Controller
     {
         $error = NULL;
         return $this->render('ChamelleUserBundle:Base:register.html.twig', array('error' => $error));
+    }
+    
+    
+    public function createAction()
+    {
+        // Checking request
+        $request = $this->getRequest();
+        
+        if ($request->getMethod() == 'POST')
+        {
+            //TODO: form validation
+            
+            // Create user
+            $em = $this->getDoctrine()->getManager();
+
+            $user = new User;
+            $user->setName($request->get('name'));
+            $user->setEmail($request->get('email'));
+            
+            // Cypher
+            $cypher = $this->container->get('chamelle.user.cypher');
+            $salt = $cypher->generateSalt();
+            $encodedPwd = $cypher->encodePassword($request->get('password'), $salt);
+            
+            $user->setSalt($salt);
+            $user->setPassword($encodedPwd);
+            
+            // Persisting user
+            $em->persist($user);
+            $em->flush();
+
+            // TODO: If creation succeeds: send email with activation link
+            //$mailer = $this->container->get('mailer');
+
+            // Adding temp message (TODO: "email sent")
+            $this->get('session')->getFlashBag()->add('success', "Your account has successfully been created.");
+        }
+        else
+        {
+            // Adding failure temporary message
+            $this->get('session')->getFlashBag()->add('fail', "EPIC FAIL!");
+        }
+        // Redirecting to home page
+        return $this->redirect($this->generateUrl('chamelle_home'));
     }
     
     

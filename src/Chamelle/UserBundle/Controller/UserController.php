@@ -7,21 +7,6 @@ use Symfony\Component\Security\Core\SecurityContext;
 
 class UserController extends Controller
 {
-    public function createAction()
-    {
-        $cypher = $this->container->get('chamelle.user.cypher');
-        $request = $this->getRequest();
-        
-        //Check form
-        
-        //Create user
-        
-        //If creation succeeds: send email with activation link
-        
-        //Return email sent
-    }
-    
-    
     public function accountAction()
     {
         $user = $this->getUser();

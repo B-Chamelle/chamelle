@@ -8,15 +8,15 @@
     <div class="alert alert-error">{{ error.message }}</div>
     {% endif %}
 
-    <form action="{{ path('chamelle_user_create') }}" method="post">
+    <form action="{{ path('chamelle_createuser') }}" method="post">
         <label for="name">Nickname</label>
-        <input type="text" id="name" name="_name" autofocus/>
+        <input type="text" id="name" name="name" autofocus/>
         
         <label for="email">Email</label>
-        <input type="email" id="email" name="_email"/>
+        <input type="email" id="email" name="email"/>
 
         <label for="password">Password</label>
-        <input type="password" id="password" name="_password"/>
+        <input type="password" id="password" name="password"/>
         <br />
         <button type="submit" class="btn btn-success"> <i class="icon-user icon-white"></i> Sign up</button>
     </form>

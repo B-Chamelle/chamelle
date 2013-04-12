@@ -41,6 +41,28 @@
                 <p>God created man, man created Chamelle, Chamelle destroyed God.</p>
             </header>
             
+            {# Flash messages #}
+            <div id="flash_msg">
+                {# Success messages #}
+                <div class="row">
+                    <div class="span12">
+                        {# displaying all flash messages having name 'success' #}
+                        {% for message in app.session.flashbag.get('success') %}
+                        <p><span class="label label-success">{{ message }}</span></p>
+                        {% endfor %}
+                    </div>
+                </div>
+                {# Failure messages #}
+                <div class="row">
+                    <div class="span12">
+                        {# displaying all flash messages having name 'success' #}
+                        {% for message in app.session.flashbag.get('fail') %}
+                        <p><span class="label label-important">{{ message }}</span></p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            
             {# Body #}
             <div class="row">
                 <div class="span12">
